@@ -94,26 +94,17 @@ input {
   gap: 5px;
 }
 
-#checkbox {
-  /* width: 10%; */
-}
-
-#item {
-  /* width: 70%; */
-}
-
 button {
   border: none;
   padding: 5px 5px;
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
   #add-item {
     width: 93%;
   }
-  
+
   #add-icon {
     width: 5%;
   }
-
 }
