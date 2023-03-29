@@ -1,7 +1,4 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-unused-vars */
-
-import _ from 'lodash';
+// import _ from 'lodash';
 import './style.css';
 
 const todoTasks = [
@@ -25,7 +22,6 @@ function iterateToDoTasks() {
   todoTasks.forEach((task) => {
     const taskItem = document.createElement('li');
     taskItem.id = 'inner-item';
-    // listItems.innerHTML = `${task.description} ${task.completed ? "(done)" : ""}`;
     listItems.appendChild(taskItem);
 
     const checkBox = document.createElement('input');
