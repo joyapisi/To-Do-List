@@ -1,64 +1,49 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-unused-vars */
+
 import _ from 'lodash';
 import './style.css';
 
 const todoTasks = [
   {
-    description: "Wash dishes",
+    index: 0,
+    description: 'Edit tiktok video',
     completed: false,
-    index: 0
   },
   {
-    description: "Do laundry",
-    completed: false,
-    index: 1
-  },
-  {
-    description: "Buy groceries",
+    index: 1,
+    description: 'send draft to client',
     completed: true,
-    index: 2
-  }
+  },
 ];
 
 function iterateToDoTasks() {
-  const listItems = document.getElementById("list-items"); 
+  const listItems = document.getElementById('list-items');
 
-  listItems.innerHTML = "";
+  listItems.innerHTML = '';
 
-  todoTasks.forEach(task => {
-    const taskItem = document.createElement("li");
-    taskItem.setAttribute("id", "inner-item");
-    listItems.innerHTML = `${task.description} ${task.completed ? "(completed)" : ""}`;
+  todoTasks.forEach((task) => {
+    const taskItem = document.createElement('li');
+    taskItem.id = 'inner-item';
+    // listItems.innerHTML = `${task.description} ${task.completed ? "(done)" : ""}`;
     listItems.appendChild(taskItem);
 
-    const checkBox = document.createElement("input");
-    checkBox.setAttribute("type", "checkbox");
-    checkBox.id = "checkbox"
+    const checkBox = document.createElement('input');
+    checkBox.setAttribute('type', 'checkbox');
+    checkBox.id = 'checkbox';
     taskItem.appendChild(checkBox);
 
-    const todoItem = document.createElement("input");
-    checkBox.setAttribute("type", "text");
-    checkBox.id = "todo-item"
-    taskItem.appendChild(checkBox);
+    const todoItem = document.createElement('input');
+    todoItem.setAttribute('type', 'text');
+    todoItem.id = 'todo-item';
+    todoItem.innerHTML = `${task.description} ${task.completed ? '(done)' : ''}`;
+    taskItem.appendChild(todoItem);
 
-    const ellipsis = document.createElement("a");
-    checkBox.setAttribute("class", "fa-solid fa-ellipsis-vertical");
-    checkBox.id = "ellipsis-icon"
+    const ellipsis = document.createElement('a');
+    ellipsis.setAttribute('class', 'fa-solid fa-ellipsis-vertical');
+    ellipsis.id = 'ellipsis-icon';
     taskItem.appendChild(ellipsis);
   });
 }
 
-
-
-
-// function component() {
-//   const element = document.createElement('div');
-
-  // Lodash, now imported by this script
-  // element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  // element.classList.add('hello');
-
-//   return element;
-// }
-
-// document.body.appendChild(component());
-
+iterateToDoTasks();
