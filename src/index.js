@@ -31,12 +31,13 @@ function iterateToDoTasks() {
     const checkBox = document.createElement('input');
     checkBox.setAttribute('type', 'checkbox');
     checkBox.id = 'checkbox';
+    checkBox.checked = todoTasks.completed;
     taskItem.appendChild(checkBox);
 
     const todoItem = document.createElement('input');
     todoItem.setAttribute('type', 'text');
     todoItem.id = 'todo-item';
-    todoItem.innerHTML = `${task.description} ${task.completed ? '(done)' : ''}`;
+    todoItem.value = `${task.description}`;
     taskItem.appendChild(todoItem);
 
     const ellipsis = document.createElement('a');
