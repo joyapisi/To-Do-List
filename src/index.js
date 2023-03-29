@@ -1,18 +1,10 @@
 // import _ from 'lodash';
 import './style.css';
+import './modules/add-task';
+import './modules/delete-task';
+import './modules/edit-task';
 
-const todoTasks = [
-  {
-    index: 0,
-    description: 'Edit tiktok video',
-    completed: false,
-  },
-  {
-    index: 1,
-    description: 'send draft to client',
-    completed: true,
-  },
-];
+const todoTasks = [];
 
 function iterateToDoTasks() {
   const listItems = document.getElementById('list-items');
