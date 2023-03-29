@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webpack Exercise</title>
+  <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script><script defer src="print.bundle.js"></script></head>
+  <body>
+    <div class="to-do-list" id="to-do-list">
+      <div>
+        <h3 class="todo-topic">Today's To Do</h3>
+        <i id="icon" class="fa-solid fa-arrows-rotate"></i>
+      </div>
+      <form class="to-do-form">
+        <div>
+          <input
+            type="text"
+            id="item"
+            placeholder="Add to your list.... "
+            required
+          />
+          <div id="add-icon">&#43;</div>
+        </div>
+        <div id="list-items">
+          <input type="checkbox" id="todo1" class="todo1" />
+          <input type="text" id="item" />
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+          <input type="checkbox" id="todo2" class="todo2" />
+          <input type="text" id="item" />
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+
+        <button type="submit" id="clear-all">Clear all completed</button>
+      </form>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/58789452ae.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

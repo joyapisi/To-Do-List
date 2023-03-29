@@ -1,0 +1,95 @@
+* {
+  max-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+    padding: 50px 10px;
+}
+
+.to-do-list {
+  border-radius: 0.3rem;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.3);
+  padding: 5px 5px; 
+  background-color: #fff;
+}
+
+#header {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 5px;
+  gap: 60%;
+  border-bottom: 0.5px solid #000;
+}
+/* 
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+} */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+}
+
+#add-items {
+  display: flex;
+  padding: 10px 5px;
+  gap: 25%;
+  border-bottom: 0.5px solid #000;
+}
+
+input {
+  border: none;
+}
+
+/* #item, #add-icon {
+  display: flex;
+} */
+
+#list-items {
+  padding: 5px 5px;
+  border-bottom: 0.5px solid #000;
+}
+
+#todo-item {
+  width: 80%;
+}
+
+#ellipsis-icon {
+  align-self: flex-end;
+}
+
+#list-items {
+  display: flex;
+  flex-direction: column;
+}
+
+#inner-item {
+  display: flex;
+  align-items: flex-start; 
+}
+#checkbox {
+  width: 10%;
+}
+#item {
+  width: 70%;
+}
+
+button {
+  border: none;
+  padding: 5px 5px;
+}
