@@ -79,7 +79,7 @@ In order to run this project you need:
 -Webpack
 -Visual Studio Code as your code editor
 
-### Setup <a name="set-up"></a>
+# Setup <a name="set-up"></a>
 
 Clone this repository to your desired folder:
 
@@ -88,19 +88,17 @@ Clone this repository to your desired folder:
   git clone[(https://github.com/joyapisi/To-Do-List.git)]
 ```
 
-### Set Up webpack
+## Understand Set Up Requirements
 
-## Define webpack
+### Define webpack
 
 <a href="https://webpack.js.org/concepts/">webpack</a>is a static module bundler for modern JavaScript applications. When webpack processes your application, it internally builds a dependency graph from one or more entry points and then combines every module your project needs into one or more bundles, which are static assets to serve your content from.
 
-### Set Up Linters
-
-## Define Linters
+### Define Linters
 
 A linter is a tool to help you improve your code. You can learn more about Linters here: (source: (<https://www.testim.io/blog/what-is-a-linter-heres-a-definition-and-quick-start-guide/>)).
 
-Advantages of Linting:
+#### Advantages of Linting:
 
 1. Fewer errors in production- The use of linters helps to diagnose and fix technical issues such as code smells. As a result, fewer defects make their way to production.
 2. Achieving a more readable and consistent style, through the enforcement of its rules.
@@ -108,11 +106,14 @@ Advantages of Linting:
 4. Having an objective and measurable assessment of code quality.
 5. Having fewer discussions about code style and aesthetic choices during code reviews.
 
-### Install webpack and linters <a name="install"></a>
+# Install webpack and linters <a name="install"></a>
 
 ## Install webpack
 
 - Follow the instructions <a href="https://webpack.js.org/guides/getting-started/#basic-setup">here</a> to set up webpack.
+
+### Steps to Install webpack
+
 - In the link above, go through these topics in order:
 <ul>
   <li><a href="https://webpack.js.org/guides/getting-started/#basic-setup">Getting Started</a></li>
@@ -123,15 +124,15 @@ Advantages of Linting:
 
 ## Install Linters
 
-You can find linters for most of the programming languages, e.g. Rubocop for Ruby or ESLint for JavaScript.
+Linters for various programming languages are available for use, e.g. Rubocop for Ruby or ESLint for JavaScript.
 
-Also, there are many ways you can integrate a linter in your workflow:
+There are many ways you can integrate a linter in your workflow:
 
 -text editor plugin
 -GitHub Actions
 -GitHub apps
 
-## Set up Linters
+### Steps to Install Linters
 
 **Note:** The npm package manager is going to create a node_modules directory to install all of your dependencies. You shouldn't commit that directory. To avoid that, you can create a .gitignore file and add node_modules to it:
 
