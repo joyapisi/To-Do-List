@@ -1,0 +1,110 @@
+* {
+  max-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+  padding: 50px 10px;
+}
+
+.to-do-list {
+  border-radius: 0.3rem;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.3);
+  padding: 5px 5px;
+  background-color: #fff;
+}
+
+#header {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 5px;
+  border-bottom: 0.5px solid #000;
+}
+
+.todo-topic {
+  width: 94%;
+}
+
+#refresh-icon {
+  width: 6%;
+}
+
+/*
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+} */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#add-items {
+  display: flex;
+  padding: 10px 5px;
+  border-bottom: 0.5px solid #000;
+}
+
+#add-item {
+  width: 95%;
+}
+
+#add-icon {
+  width: 5%;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+input {
+  border: none;
+}
+
+#list-items {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5px;
+  gap: 15px;
+  border-bottom: 0.5px solid #000;
+}
+
+#todo-item {
+  width: 90%;
+}
+
+#ellipsis-icon {
+  align-self: flex-end;
+}
+
+#inner-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+button {
+  border: none;
+  padding: 5px 5px;
+}
+
+@media screen and (min-width: 768px) {
+  #add-item {
+    width: 93%;
+  }
+
+  #add-icon {
+    width: 5%;
+  }
+}
