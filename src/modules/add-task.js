@@ -1,10 +1,15 @@
-function addNewTask(todoTasks, description) {
+import { iterateToDoTasks } from './iterate-tasks';
+
+export function addNewTask(todoTasks, description) {
   const newTask = {
     description,
     completed: false,
     index: todoTasks.length,
   };
   todoTasks.push(newTask);
+  iterateToDoTasks();
 }
 
-export default addNewTask;
+let todoTasks = [];
+
+// export default { addNewTask, todoTasks }; 

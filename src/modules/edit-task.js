@@ -1,5 +1,8 @@
-function editTask(todoTasks, index, newDescription) {
+import { iterateToDoTasks } from './iterate-tasks';
+
+export function editTask(todoTasks, index, newDescription) {
   todoTasks[index].description = newDescription;
+  iterateToDoTasks(); 
 }
 
-export default editTask;
+let todoTasks = [];

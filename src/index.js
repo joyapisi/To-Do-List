@@ -1,61 +1,39 @@
 // import _ from 'lodash';
 import './style.css';
 
-import addNewTask from './modules/add-task.js';
-import deleteTask from './modules/delete-task.js';
-import editTask from './modules/edit-task.js';
+import { iterateToDoTasks } from './modules/iterate-tasks';
+import { addNewTask } from './modules/add-task.js';
+import { deleteTask } from './modules/delete-task.js';
+import { editTask } from './modules/edit-task.js';
 
-let todoTasks = [];
 
-// class TodoTasks {
-//   constructor(description, completed, index) {
-//     this.description = description;
-//     this.completed = completed;
-//     this.index = index;
-//   }
-// }
+  let todoTasks = [];
 
-function iterateToDoTasks() {
-  const listItems = document.getElementById('list-items');
-
-  listItems.innerHTML = '';
-
-  todoTasks.forEach((task, index) => {
-    const taskItem = document.createElement('li');
-    taskItem.id = `inner-item-${index}`;
-    listItems.appendChild(taskItem);
-
-    const checkBox = document.createElement('input');
-    checkBox.setAttribute('type', 'checkbox');
-    checkBox.id = 'checkbox';
-    checkBox.checked = task.completed;
-    taskItem.appendChild(checkBox);
-
-    const todoItem = document.createElement('input');
-    todoItem.setAttribute('type', 'text');
-    todoItem.id = 'todo-item';
-    todoItem.value = `${task.description}`;
-    taskItem.appendChild(todoItem);
-
-    const ellipsis = document.createElement('a');
-    ellipsis.setAttribute('class', 'fa-solid fa-ellipsis-vertical');
-    ellipsis.id = 'ellipsis-icon';
-    taskItem.appendChild(ellipsis);
-
-    const removeIcon = document.createElement('a');
-    removeIcon.setAttribute('class', 'fa-sharp fa-solid fa-trash');
-    removeIcon.id = 'remove-icon';
-    removeIcon.classList = 'remove-icon';
-    taskItem.appendChild(removeIcon);
+  // Event listener for clear all button
+  const clearAllButton = document.getElementById('clear-all');
+  clearAllButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    todoTasks = todoTasks.filter((task) => !task.completed);
+    iterateToDoTasks();
   });
-}
 
-iterateToDoTasks();
+  // Event listener for add icon
+  const addTask = document.getElementById('add-item');
+  const addIcon = document.getElementById('add-icon');
+  addIcon.addEventListener('click', (e) => {
+    e.preventDefault();
+    const description = addTask.value.trim();
+    if (description) {
+      addNewTask(todoTasks, description);
+      addTask.value = '';
+    }
+  });
 
 // Storing to local storage
 function saveToDoTasks() {
   localStorage.setItem('todoTasks', JSON.stringify(todoTasks));
 }
+saveToDoTasks();
 
 function retrieveToDoTasks() {
   const storedItems = localStorage.getItem('todoTasks');
@@ -64,7 +42,6 @@ function retrieveToDoTasks() {
     iterateToDoTasks();
   }
 }
-retrieveToDoTasks();
 
 // Add event listeners to actions
 const todoForm = document.getElementById('to-do-form');

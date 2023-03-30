@@ -7,19 +7,21 @@ HTML, CSS and JavaScript Awesome Books Project
 
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
-- [Tech Stack](#tech-stack)
-- [Key Features](#key-features)
-- [🎥 Video Explanation](#video-explanation)
-- [🚀 Live Demo](#live-demo)
+    - - [Tech Stack](#tech-stack)
+    - - [Key Features](#key-features)
+  - [🎥 Video Explanation](#video-explanation)
+  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#set-up)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
+    - - [Install webpack](#webhint-installation)
+    - - [Install linters](#linter-installation)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
-  -- [🙏 Acknowledgements](#acknowledgements)
+- [🙏 Acknowledgements](#acknowledgements)
 - [❓ FAQ](#faq)
 - [📝 License](#license)
 
@@ -108,7 +110,7 @@ A linter is a tool to help you improve your code. You can learn more about Linte
 
 # Install webpack and linters <a name="install"></a>
 
-## Install webpack
+## Install webpack <a name="webpack-installation"></a>
 
 - Follow the instructions <a href="https://webpack.js.org/guides/getting-started/#basic-setup">here</a> to set up webpack.
 
@@ -118,11 +120,11 @@ A linter is a tool to help you improve your code. You can learn more about Linte
 <ul>
   <li><a href="https://webpack.js.org/guides/getting-started/#basic-setup">Getting Started</a></li>
   <li><a href="https://webpack.js.org/guides/asset-management/#loading-css">Asset Management</a></li>
-  <li><a href="https://webpack.js.org/guides/output-management/#setting-up-htmlwebpackplugin"></a>Output Management</li>
+  <li><a href="https://webpack.js.org/guides/output-management/#setting-up-htmlwebpackplugin">Output Management</a></li>
   <li><a href="https://webpack.js.org/guides/development/#adjusting-your-text-editor">Development</a></li>
 </ul>
 
-## Install Linters
+## Install Linters <a name="linter-installation"></a>
 
 Linters for various programming languages are available for use, e.g. Rubocop for Ruby or ESLint for JavaScript.
 
@@ -148,7 +150,7 @@ Run
 npm install --save-dev eslint@7.x eslint-config-airbnb-base@14.x eslint-plugin-import@2.x babel-eslint@10.x
 ```
 
-## Web Hint
+## Web Hint <a name="webhint-installation"></a>
 
 This is a customizable linting tool that helps you improve your site's accessibility, speed, cross-browser compatibility, and more by checking your code for best practices and common errors.
 
@@ -173,7 +175,7 @@ npm init -y
    [Copy contents of .eslintrc.json to the root directory of your project](https://github.com/microverseinc/linters-config/blob/master/html-css-js/.eslintrc.json)
 5. Fix validation errors.
 
-### [Stylelint](https://stylelint.io/)
+### [Stylelint](https://stylelint.io/) <a name="stylelint-installation"></a>
 
 A mighty, modern linter that helps you avoid errors and enforce conventions in your styles.
 
