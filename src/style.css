@@ -88,6 +88,11 @@ input {
   align-self: flex-end;
 }
 
+#remove-icon {
+  position: absolute;
+  align-self: flex-end;
+}
+
 #inner-item {
   display: flex;
   align-items: flex-start;

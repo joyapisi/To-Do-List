@@ -1,9 +1,10 @@
-function addNewTask(description) {
+function addNewTask(tasks, description) {
     const newTask = {
       description: description,
       completed: false,
-      index: todoTasks.length
+      index: tasks.length
     };
-       todoTasks.push(newTask);
-    iterateToDoTasks();
+       tasks.push(newTask);
 }
+
+export default addNewTask;
