@@ -71,11 +71,11 @@ retrieveToDoTasks();
 
 // Add event listeners to actions
 
-const addIcon = document.getElementById('add-icon');
+// const addIcon = document.getElementById('add-icon');
 const todoForm = document.getElementById('to-do-form');
-addIcon.addEventListener('click', (e) => {
+todoForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const description = todoForm.elements.description.value;
+  const description = todoForm.getElementById('description').value;
   addNewTask(description);
   saveToDoTasks();
   todoForm.reset();
