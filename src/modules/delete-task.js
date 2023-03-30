@@ -1,7 +1,7 @@
-function deleteTask(tasks, index) {
-  tasks.splice(index, 1);
-  tasks.forEach((task, index) => {
-    task.index = index;
+function deleteTask(todoTasks, index) {
+  todoTasks.splice(index, 1);
+  todoTasks.forEach((todoTasks, index) => {
+    todoTasks.index = index;
   });
 }
 

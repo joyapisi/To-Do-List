@@ -5,30 +5,30 @@ import addNewTask from './modules/add-task.js';
 import deleteTask from './modules/delete-task.js';
 import editTask from './modules/edit-task.js';
 
-const todoTasks = [];
+let todoTasks = [];
 
-class TodoTasks {
-  constructor(description, completed, index) {
-    this.description = description;
-    this.completed = completed;
-    this.index = index;
-  }
-}
+// class TodoTasks {
+//   constructor(description, completed, index) {
+//     this.description = description;
+//     this.completed = completed;
+//     this.index = index;
+//   }
+// }
 
 function iterateToDoTasks() {
   const listItems = document.getElementById('list-items');
 
   listItems.innerHTML = '';
 
-  todoTasks.forEach((task) => {
+  todoTasks.forEach((task, index) => {
     const taskItem = document.createElement('li');
-    taskItem.id = 'inner-item';
+    taskItem.id = `inner-item-${index}`;
     listItems.appendChild(taskItem);
 
     const checkBox = document.createElement('input');
     checkBox.setAttribute('type', 'checkbox');
     checkBox.id = 'checkbox';
-    checkBox.checked = todoTasks.completed;
+    checkBox.checked = task.completed;
     taskItem.appendChild(checkBox);
 
     const todoItem = document.createElement('input');
@@ -45,51 +45,70 @@ function iterateToDoTasks() {
     const removeIcon = document.createElement('a');
     removeIcon.setAttribute('class', 'fa-sharp fa-solid fa-trash');
     removeIcon.id = 'remove-icon';
+    removeIcon.classList = 'remove-icon';
     taskItem.appendChild(removeIcon);
   });
 }
 
 iterateToDoTasks();
 
-const taskItem = document.getElementById('inner-item');
-const listItems = document.getElementById('list-items');
-const addIcon = document.getElementById('add-icon');
-
-//Storing to local storage
+// Storing to local storage
 function saveToDoTasks() {
   localStorage.setItem('todoTasks', JSON.stringify(todoTasks));
 }
-saveToDoTasks();
+// saveToDoTasks();
 
-function retrieveToDoList() {
-  const storedItems = localStorage.getItem('todoTasks') || "[]";
-    if (storedItems) {
+function retrieveToDoTasks() {
+  const storedItems = localStorage.getItem('todoTasks');
+  // || '[]'
+  if (storedItems) {
     todoTasks = JSON.parse(storedItems);
-    return storedItems;
-    }
- }
- retrieveToDoList()
-
- let tasks = retrieveToDoList(); function addTask () {
-  tasks.unshift({
-    description: "",
-    completed: false
-  });
-  setItems(tasks);
-  refreshList();
+    iterateToDoTasks();
+    // return storedItems;
+  }
 }
+retrieveToDoTasks();
 
-function refreshList(){
-  listItems.innerHTML = "";
-  tasks.forEach((task) => {
-    const taskElement = listItems.contentEditable.cloneNode(true);
-  });
-  return tasks;
-}
+// Add event listeners to actions
 
+const addIcon = document.getElementById('add-icon');
+const todoForm = document.getElementById('to-do-form');
+addIcon.addEventListener('click', (e) => {
+  e.preventDefault();
+  const description = todoForm.elements.description.value;
+  addNewTask(description);
+  saveToDoTasks();
+  todoForm.reset();
+});
 
+const listItems = document.getElementById('list-items');
+listItems.addEventListener('change', (e) => {
+  const checkbox = e.target;
+  const { index } = checkbox.parentElement.dataset;
+  todoTasks[index].completed = checkbox.checked;
+  saveToDoTasks();
+});
 
+listItems.addEventListener('input', (e) => {
+  const input = e.target;
+  const { index } = input.parentElement.dataset;
+  editTask(index, input.value);
+  saveToDoTasks();
+});
 
+// let nearestTask;
+const taskItem = document.createElement('inner-item');
+listItems.addEventListener('click', (e) => {
+  const { target } = e;
+  // nearestTask = target.closest('#inner-item');
+  if (target.classList.contains('remove-icon')) {
+    const index = todoTasks.findIndex((task) => taskItem === task.item);
+    deleteTask(index);
+    saveToDoTasks();
+  }
+});
+
+retrieveToDoTasks();
 
 // // Saving to local storage
 // function saveToDoTasks() {

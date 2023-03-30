@@ -1,6 +1,5 @@
-function editTask(tasks, index, newDescription) {
-  tasks[index].description = newDescription;
+function editTask(todoTasks, index, newDescription) {
+  todoTasks[index].description = newDescription;
 }
 
 export default editTask;
-  
