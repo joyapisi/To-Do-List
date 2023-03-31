@@ -7,28 +7,23 @@
   <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script><script defer src="print.bundle.js"></script></head>
   <body>
     <div class="to-do-list" id="to-do-list">
-      <div>
+      <div id="header">
         <h3 class="todo-topic">Today's To Do</h3>
-        <i id="icon" class="fa-solid fa-arrows-rotate"></i>
+        <a id="refresh-icon" class="fa-solid fa-arrows-rotate"></a>
       </div>
-      <form class="to-do-form">
-        <div>
+      <form class="to-do-form" id="to-do-form">
+        <div id="add-items">
           <input
             type="text"
-            id="item"
+            id="add-item"
             placeholder="Add to your list.... "
             required
           />
           <div id="add-icon">&#43;</div>
         </div>
-        <div id="list-items">
-          <input type="checkbox" id="todo1" class="todo1" />
-          <input type="text" id="item" />
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-          <input type="checkbox" id="todo2" class="todo2" />
-          <input type="text" id="item" />
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </div>
+        <ul id="list-items">
+          <!--To be rendered dynamically in index.js-->
+        </ul>
 
         <button type="submit" id="clear-all">Clear all completed</button>
       </form>
