@@ -85,39 +85,33 @@ input {
 .inner-item {
   display: flex;
   justify-content: space-between;
-  padding: 5px 0;
+  padding: 10px 0;
   width: 100%;
   gap: 10px;
   background-color: #eee;
 }
 
 #checkbox {
-  /* padding: 0 10px; */
+  padding-left: 15px;
 }
 
 #todo-item {
-  /* padding: 10px 0; */
-  /* border-bottom: 0.5px solid #000; */
-  width: auto;
-  background-color: #eee;
+  /* padding: 0 5px; */
+  border-bottom: 0.5px solid #000;
+  width: 90%;
+  background-color: transparent;
 }
 
 #ellipsis-icon {
-  align-self: flex-end;
-  /* padding: 0 10px; */
+  position: absolute;
+  right: 50px;
+  cursor: pointer;
 }
 
 #remove-icon {
-  position: absolute;
   z-index: 3;
-  padding: 0 10px;
-  align-self: flex-end;
-}
-
-#inner-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 5px;
+  padding-right: 15px;
+  cursor: pointer;
 }
 
 button {

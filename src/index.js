@@ -31,7 +31,6 @@ function iterateToDoTasks() {
     todoItem.value = `${task.description}`;
     todoItem.classList = 'edit-input';
     taskItem.appendChild(todoItem);
-  
     // taskItem.replaceWith(todoItem);
     // todoItem.focus();
 
@@ -41,9 +40,9 @@ function iterateToDoTasks() {
     taskItem.appendChild(ellipsis);
 
     const removeIcon = document.createElement('a');
-    removeIcon.setAttribute('class', 'fa-sharp fa-solid fa-trash');
+    removeIcon.setAttribute('class', 'active, fa-sharp fa-solid fa-trash');
     removeIcon.id = 'remove-icon';
-    // removeIcon.classList = 'remove-icon';
+    removeIcon.style.display = 'none';
     taskItem.appendChild(removeIcon);
 
     // add event listeners for iterated items inside the list container
@@ -83,8 +82,9 @@ function iterateToDoTasks() {
 
     ellipsis.addEventListener('click', (e) => {
       e.preventDefault();
-      removeIcon.style.display = 'block';
+      const removeIcon = document.getElementById('remove-icon');
       ellipsis.style.display = 'none';
+      removeIcon.style.display = 'block';
     });
 
     removeIcon.addEventListener('click', (e) => {
@@ -129,7 +129,7 @@ addIcon.addEventListener('click', () => {
   const description = addYourItem.value;
   all.addNewTask(todoTasks, description); iterateToDoTasks();
   addYourItem.value = '';
-  console.log(todoTasks);
+  return todoTasks;
 });
 
 // addIcon.addEventListener('click', () => {

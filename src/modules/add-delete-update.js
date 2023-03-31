@@ -10,9 +10,16 @@ function addNewTask(todoTasks, description) {
   storingTolocalStorage();
 }
 
-function clearDoneTasks(todoTasks) {
-  todoTasks = todoTasks.filter((task) => !task.completed);
+function clearDoneTasks(todoTasks, index) {
+  todoTasks.splice(index, 1);
+  todoTasks.forEach((task, index) => {
+    task.index = index;
+  });
 }
+
+// {
+//   todoTasks = todoTasks.filter((task) => !task.completed);
+// }
 
 function editTasks(todoTasks, index, newDescription) {
   todoTasks[index].description = newDescription;
