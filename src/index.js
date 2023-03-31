@@ -14,9 +14,16 @@ function iterateToDoTasks() {
 
   todoTasks.forEach((task, index) => {
     const taskItem = document.createElement('li');
-    taskItem.id = `inner-item-${index}`;
+    taskItem.id = `inner-item ${index}`;
+    taskItem.classList = 'inner-item';
     taskItem.innerText = `${task.description}`;
     taskItem.style.textDecoration = task.completed ? 'line-through' : 'none';
+
+    const checkBox = document.createElement('input');
+    checkBox.setAttribute('type', 'checkbox');
+    checkBox.id = 'checkbox';
+    checkBox.checked = task.completed;
+    taskItem.appendChild(checkBox);
 
     const todoItem = document.createElement('input');
     todoItem.setAttribute('type', 'text');
@@ -24,12 +31,7 @@ function iterateToDoTasks() {
     todoItem.value = `${task.description}`;
     todoItem.classList = 'edit-input';
     taskItem.appendChild(todoItem);
-
-    const checkBox = document.createElement('input');
-    checkBox.setAttribute('type', 'checkbox');
-    checkBox.id = 'checkbox';
-    checkBox.checked = task.completed;
-    taskItem.appendChild(checkBox);
+  
     // taskItem.replaceWith(todoItem);
     // todoItem.focus();
 
@@ -41,10 +43,9 @@ function iterateToDoTasks() {
     const removeIcon = document.createElement('a');
     removeIcon.setAttribute('class', 'fa-sharp fa-solid fa-trash');
     removeIcon.id = 'remove-icon';
-    removeIcon.classList = 'remove-icon';
+    // removeIcon.classList = 'remove-icon';
     taskItem.appendChild(removeIcon);
 
-    
     // add event listeners for iterated items inside the list container
 
     checkBox.addEventListener('change', (e) => {
