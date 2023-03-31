@@ -17,13 +17,19 @@ function clearDoneTasks(todoTasks, index) {
   });
 }
 
-// {
-//   todoTasks = todoTasks.filter((task) => !task.completed);
-// }
-
 function editTasks(todoTasks, index, newDescription) {
   todoTasks[index].description = newDescription;
   storingTolocalStorage();
 }
 
-export { editTasks, clearDoneTasks, addNewTask };
+function toggleCompleted(todoTasks, task) {
+  const index = todoTasks.findIndex((item) => item.index === task.index);
+  todoTasks[index].completed = !todoTasks[index].completed;
+  storingTolocalStorage();
+}
+
+function clearAllDone(todoTasks) {
+  return todoTasks.filter((task) => !task.completed);
+}
+
+export { editTasks, clearDoneTasks, addNewTask, toggleCompleted, clearAllDone };

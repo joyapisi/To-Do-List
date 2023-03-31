@@ -2,6 +2,7 @@
 import './style.css';
 
 import * as all from './modules/add-delete-update.js';
+import storingTolocalStorage from './modules/local-storage';
 
 const todoTasks = JSON.parse(localStorage.getItem('todoTasks')) || [];
 
@@ -16,7 +17,7 @@ function iterateToDoTasks() {
     const taskItem = document.createElement('li');
     taskItem.id = `inner-item ${index}`;
     taskItem.classList = 'inner-item';
-    taskItem.innerText = `${task.description}`;
+    // taskItem.innerText = `${task.description}`;
     taskItem.style.textDecoration = task.completed ? 'line-through' : 'none';
 
     const checkBox = document.createElement('input');
@@ -40,36 +41,33 @@ function iterateToDoTasks() {
     taskItem.appendChild(ellipsis);
 
     const removeIcon = document.createElement('a');
-    removeIcon.setAttribute('class', 'active, fa-sharp fa-solid fa-trash');
+    removeIcon.setAttribute('class', ' fa-sharp fa-solid fa-trash');
     removeIcon.id = 'remove-icon';
     removeIcon.style.display = 'none';
     taskItem.appendChild(removeIcon);
 
     // add event listeners for iterated items inside the list container
 
-    checkBox.addEventListener('change', (e) => {
-      e.preventDefault();
-      all.editTasks(todoTasks, index, task.completed);
-      localStorage.setItem('todoTasks', JSON.stringify(todoTasks));
-      iterateToDoTasks();
-    });
-
-    taskItem.addEventListener('click', (e) => {
+    taskItem.addEventListener('dbclick', (e) => {
       e.preventDefault();
       const todoItem = document.getElementById('todo-item');
-      todoItem.setAttribute('type', 'text');
-      todoItem.id = 'todo-item';
-      todoItem.value = `${task.description}`;
-      todoItem.classList = 'edit-input';
-      taskItem.appendChild(todoItem);
+      taskItem.innerHTML = todoItem;
+      // todoItem.setAttribute('type', 'text');
+      // todoItem.id = 'todo-item';
+      // todoItem.value = `${task.description}`;
+      // todoItem.classList = 'edit-input';
+      // taskItem.appendChild(todoItem);
     });
 
     todoItem.addEventListener('blur', (e) => {
       e.preventDefault();
       task.description = todoItem.value;
-      localStorage.setItem('todoTasks', JSON.stringify(todoTasks));
+      storingTolocalStorage();
       iterateToDoTasks();
     });
+
+    // label.replaceWith(input);
+    // input.focus();
 
     todoItem.addEventListener('keydown', (e) => {
       e.preventDefault();
@@ -93,6 +91,13 @@ function iterateToDoTasks() {
       localStorage.setItem('todoTasks', JSON.stringify(todoTasks));
       iterateToDoTasks();
     });
+
+    checkBox.addEventListener('change', (e) => {
+      e.preventDefault();
+      all.toggleCompleted(todoTasks, task);
+      storingTolocalStorage();
+      iterateToDoTasks();
+    });
     listItems.appendChild(taskItem);
   });
 }
@@ -109,19 +114,18 @@ form.addEventListener('submit', (e) => {
   const todoItem = document.getElementById('todo-item');
   const description = todoItem.value;
   all.addNewTask(todoTasks, description, iterateToDoTasks);
-  localStorage.setItem('todoTasks', JSON.stringify(todoTasks));
+  storingTolocalStorage();
   iterateToDoTasks();
   todoItem.value = '';
 });
 
-clearAllButton.addEventListener('click', (e) => {
+clearAllButton.addEventListener('submit', (e) => {
   e.preventDefault();
-  // const todoTasks = todoTasks.filter((task) => !task.completed);
-  const todoTasks = all.clearDoneTasks(todoTasks);
-  localStorage.setItem('todoTasks', JSON.stringify(todoTasks));
+  // const todoTasks = all.clearAllDone(todoTasks);
+  all.clearAllDone(todoTasks);
+  storingTolocalStorage();
   iterateToDoTasks();
 });
-
 
 addIcon.addEventListener('click', () => {
   const addYourItem = document.getElementById('add-item');
@@ -131,23 +135,4 @@ addIcon.addEventListener('click', () => {
   addYourItem.value = '';
   return todoTasks;
 });
-
-// addIcon.addEventListener('click', () => {
-//   const addIcon = document.getElementById('add-item');
-//   const todoItem =document.getElementById('todo-item');
-//   // todoItem.value = `${task.description}`;
-//   const description = todoItem.value;
-//   all.addNewTask(todoTasks, description, iterateToDoTasks);
-//   todoItem.value = '';
-// }); 
-
-// addIcon.addEventListener('click', () => {
-//   const todoItem = document.getElementById('todo-item');
-//   const description = todoItem.value.trim();
-//   if (description) {
-//     all.addNewTask(todoTasks, description);
-//     localStorage.setItem('todoTasks', JSON.stringify(todoTasks));
-//     todoItem.value = '';
-//   }
-// });
 iterateToDoTasks();
