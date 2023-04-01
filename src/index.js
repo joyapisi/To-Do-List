@@ -53,19 +53,18 @@ class List {
       todoItem.textContent = `${task.description}`;
       // event listener
       todoItem.addEventListener('dblclick', ({ target }) => {
-        
-      const editInp = document.createElement('input');
-      editInp.setAttribute('type', 'text');
-      editInp.value = target.textContent;
-      editInp.className = 'edit-input';
-      target.parentNode.replaceChild(editInp, target);
-      editInp.addEventListener('keyup', (e) => {
-        if (e.key === 'Enter') {
-          this.tasks = all.editTasks(this.tasks, task, editInp.value);
-          storingTolocalStorage(this.tasks);
-          this.displayTasks();
-        }
-      });
+        const editInp = document.createElement('input');
+        editInp.setAttribute('type', 'text');
+        editInp.value = target.textContent;
+        editInp.className = 'edit-input';
+        target.parentNode.replaceChild(editInp, target);
+        editInp.addEventListener('keyup', (e) => {
+          if (e.key === 'Enter') {
+            this.tasks = all.editTasks(this.tasks, task, editInp.value);
+            storingTolocalStorage(this.tasks);
+            this.displayTasks();
+          }
+        });
       });
       taskItem.appendChild(todoItem);
 
