@@ -1,10 +1,11 @@
-// import _ from 'lodash';
+/* eslint no-undef: "error" */
 import './style.css';
 
 import * as all from './modules/add-delete-update.js';
 import storingTolocalStorage from './modules/local-storage';
-
-// const todoTasks = JSON.parse(localStorage.getItem('todoTasks')) || [];
+/* eslint-disable */
+import toggleCompleted from './modules/status update';
+/* eslint-enable */
 
 // Event listener for clear all button
 class List {
@@ -53,16 +54,6 @@ class List {
       todoItem.textContent = `${task.description}`;
       // event listener
       todoItem.addEventListener('dblclick', ({ target }) => {
-        // const target = e.target;
-        // target.setAttribute('contenteditable', 'true');
-        // const content = document.querySelector('[contenteditable]');
-        // content.addEventListener('keyup', (e) => {
-        //   e.preventDefault();
-        //   if (e.key === 'Enter') {
-        //     target.textContent = content.textContent;
-        //     target.setAttribute('contenteditable', 'false');
-        //   }
-        // });
         const editInp = document.createElement('input');
         editInp.setAttribute('type', 'text');
         editInp.value = target.textContent;

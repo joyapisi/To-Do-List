@@ -67,7 +67,7 @@ Coming Soon!
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-Creating your first "Awesome Books" project
+Creating your first "To DO List" project
 
 To get a local copy up and running, follow these steps.
 
@@ -89,6 +89,8 @@ Clone this repository to your desired folder:
   cd my-folder
   git clone[(https://github.com/joyapisi/To-Do-List.git)]
 ```
+## Understand Set Up Requirements
+Since this code is using webpack, run `npm start` in your terminal to run it instead of using the live server. 
 
 ## Understand Set Up Requirements
 
