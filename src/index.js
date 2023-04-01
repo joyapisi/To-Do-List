@@ -51,6 +51,31 @@ class List {
       const todoItem = document.createElement('p');
       todoItem.id = 'todo-item';
       todoItem.textContent = `${task.description}`;
+      // event listener
+      todoItem.addEventListener('dblclick', ({ target }) => {
+        // const target = e.target;
+        // target.setAttribute('contenteditable', 'true');
+        // const content = document.querySelector('[contenteditable]');
+        // content.addEventListener('keyup', (e) => {
+        //   e.preventDefault();
+        //   if (e.key === 'Enter') {
+        //     target.textContent = content.textContent;
+        //     target.setAttribute('contenteditable', 'false');
+        //   }
+        // });
+        const editInp = document.createElement('input');
+        editInp.setAttribute('type', 'text');
+        editInp.value = target.textContent;
+        editInp.className = 'edit-input';
+        target.parentNode.replaceChild(editInp, target);
+        editInp.addEventListener('keyup', (e) => {
+          if (e.key === 'Enter') {
+            this.tasks = all.editTasks(this.tasks, task, editInp.value)
+            storingTolocalStorage(this.tasks);
+            this.displayTasks();
+          }
+        });
+      });
       taskItem.appendChild(todoItem);
 
       // create ellipsis
@@ -70,13 +95,6 @@ class List {
       });
       taskItem.appendChild(ellipsis);
 
-      // event listener
-      todoItem.addEventListener('dblclick', (e) => {
-        const target = e.target;
-        target.setAttribute('contenteditable', 'true');
-        const content = document.querySelector('[contenteditable]');
-        content.addEventListener('input', (event) => {  console.log(content.innerHTML)});
-      });
       this.listItems.appendChild(taskItem);
     });
   }
@@ -90,12 +108,6 @@ class List {
     this.tasks.unshift(newTask);
     storingTolocalStorage(this.tasks);
     this.displayTasks();
-
-    this.addIcon.addEventListener('click', () => {
-      document.getElementById('add-item');
-      this.add(text);
-      this.displayTasks();
-    });
   }
 
   remove(task) {
@@ -113,7 +125,9 @@ class List {
     });
     this.clearAllButton.addEventListener('click', () => {
       const arr = all.clearAllDone(this.tasks);
-      console.log(arr);
+      this.tasks = arr;
+      storingTolocalStorage(this.tasks);
+      this.displayTasks();
     });
   }
 }

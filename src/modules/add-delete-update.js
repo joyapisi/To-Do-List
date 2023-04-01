@@ -9,9 +9,14 @@ function clearDoneTasks(todoTasks, task) {
   return todoTasks;
 }
 
-function editTasks(todoTasks, index, newDescription) {
-  todoTasks[index].description = newDescription;
-  storingTolocalStorage();
+function editTasks(todoTasks, target, text) {
+  return todoTasks.map((task) => {
+    if (task.index === target.index) {
+      task.description = text;
+      return task;
+    }
+    return task;
+  });
 }
 
 function toggleCompleted(todoTasks, task) {
@@ -26,8 +31,8 @@ function resetAll(todoTasks) {
 
 function clearAllDone(todoTasks) {
   const newArr = todoTasks.filter((task) => task.completed === false);
-  newArr.forEach((task, index) => {
-    task.index = todoTasks.length - index;
+  newArr.forEach((task, i) => {
+    task.index = newArr.length - i;
   });
   return newArr;
 }
