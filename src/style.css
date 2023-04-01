@@ -41,20 +41,24 @@ form {
 
 #add-items {
   display: flex;
-  padding: 5px 0;
+
+  /* padding: 5px 0; */
   border-bottom: 0.5px solid #000;
 }
 
 #add-item {
   width: 90%;
-  padding: 0 ;
+  padding: 0;
   cursor: pointer;
 }
 
 #add-icon {
   padding: 0 10px;
-  font-size: 20px;
-  font-weight: 900;
+  margin-bottom: 5px;
+  width: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: transparent;
 }
 
 input {
@@ -72,6 +76,7 @@ input {
 
 .inner-item {
   display: flex;
+
   /* justify-content: space-between; */
   padding: 10px 0;
   width: auto;
@@ -111,7 +116,7 @@ button {
   width: 100%;
   border: none;
   padding: 10px 15px;
-  margin-top:10px;
+  margin-top: 10px;
   background-color: #ddd;
 }
 
