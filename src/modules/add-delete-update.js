@@ -28,8 +28,21 @@ function toggleCompleted(todoTasks, task) {
   storingTolocalStorage();
 }
 
+function resetAll(todoTasks) {
+  return todoTasks.map((task, i) => ({ ...task, index: i }));
+}
+
 function clearAllDone(todoTasks) {
-  return todoTasks.filter((task) => !task.completed);
+  // todoTasks.filter((task) => !task.completed);
+  // todoTasks = resetAll(todoTasks);
+  // storingTolocalStorage();
+  // return todoTasks;
+  for (let i = 0; i < todoTasks.length; i += 1) {
+    if (todoTasks[i].completed) {
+      todoTasks.splice(i, 1);
+      i -= 1;
+    }
+  }
 }
 
 export { editTasks, clearDoneTasks, addNewTask, toggleCompleted, clearAllDone };

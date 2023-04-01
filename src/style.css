@@ -33,19 +33,6 @@ body {
   width: 6%;
 }
 
-/*
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-} */
-
 form {
   display: flex;
   flex-direction: column;
@@ -61,6 +48,7 @@ form {
 #add-item {
   width: 90%;
   padding: 0 ;
+  cursor: pointer;
 }
 
 #add-icon {
@@ -97,7 +85,6 @@ input {
 
 #todo-item {
   padding: 0;
-  /* border-bottom: 0.5px solid #000; */
   width: 80%;
   background-color: transparent;
 }

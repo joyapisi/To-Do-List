@@ -26,11 +26,10 @@ function iterateToDoTasks() {
     checkBox.checked = task.completed;
     taskItem.appendChild(checkBox);
 
-    const todoItem = document.createElement('input');
-    todoItem.setAttribute('type', 'text');
+    const todoItem = document.createElement('p');
+    todoItem.setAttribute('contenteditable', 'false');
     todoItem.id = 'todo-item';
-    todoItem.value = `${task.description}`;
-    todoItem.classList = 'edit-input';
+    todoItem.textContent = `${task.description}`;
     taskItem.appendChild(todoItem);
     // taskItem.replaceWith(todoItem);
     // todoItem.focus();
@@ -48,23 +47,30 @@ function iterateToDoTasks() {
 
     // add event listeners for iterated items inside the list container
 
-    taskItem.addEventListener('dbclick', (e) => {
-      e.preventDefault();
-      const todoItem = document.getElementById('todo-item');
-      taskItem.innerHTML = todoItem;
-      // todoItem.setAttribute('type', 'text');
-      // todoItem.id = 'todo-item';
-      // todoItem.value = `${task.description}`;
-      // todoItem.classList = 'edit-input';
-      // taskItem.appendChild(todoItem);
+    todoItem.addEventListener('dblclick', (e) => {
+      const target = e.target;
+      target.setAttribute('contenteditable', 'true');
+      const content = document.querySelector('[contenteditable]');
+      content.addEventListener('input', (event) => {  console.log(content.innerHTML);
+});
+      // console.log(target);
     });
+    //   e.preventDefault();
+    //   const todoItem = document.getElementById('todo-item');
+    //   todoItem.innerHTML = todoItem;
+    //   // todoItem.setAttribute('type', 'text');
+    //   // todoItem.id = 'todo-item';
+    //   // todoItem.value = `${task.description}`;
+    //   // todoItem.classList = 'edit-input';
+    //   // taskItem.appendChild(todoItem);
+    // });
 
-    todoItem.addEventListener('blur', (e) => {
-      e.preventDefault();
-      task.description = todoItem.value;
-      storingTolocalStorage();
-      iterateToDoTasks();
-    });
+    // todoItem.addEventListener('blur', (e) => {
+    //   e.preventDefault();
+    //   task.description = todoItem.value;
+    //   storingTolocalStorage();
+    //   iterateToDoTasks();
+    // });
 
     // label.replaceWith(input);
     // input.focus();
@@ -88,13 +94,14 @@ function iterateToDoTasks() {
     removeIcon.addEventListener('click', (e) => {
       e.preventDefault();
       all.clearDoneTasks(todoTasks, index);
-      localStorage.setItem('todoTasks', JSON.stringify(todoTasks));
+      // storingTolocalStorage();
       iterateToDoTasks();
     });
 
     checkBox.addEventListener('change', (e) => {
       e.preventDefault();
       all.toggleCompleted(todoTasks, task);
+      // const completed = all.toggleCompleted(todoTasks, task);
       storingTolocalStorage();
       iterateToDoTasks();
     });
@@ -122,9 +129,23 @@ form.addEventListener('submit', (e) => {
 clearAllButton.addEventListener('submit', (e) => {
   e.preventDefault();
   // const todoTasks = all.clearAllDone(todoTasks);
-  all.clearAllDone(todoTasks);
+  // const cleared = all.toggleCompleted(todoTasks);
+  // if (cleared) {
+  //   all.clearAllDone(todoTasks);
+  // }
+  toggleCompleted(todoTasks, task);
+  const { cleared } = task;
+  if (cleared) {
+    all.clearAllDone(todoTasks);
+  }
   storingTolocalStorage();
   iterateToDoTasks();
+  // if (task.completed) {
+  //   return true;
+  // }
+  // else {
+  //   return false;
+  // };
 });
 
 addIcon.addEventListener('click', () => {
