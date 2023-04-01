@@ -1,20 +1,12 @@
 import storingTolocalStorage from './local-storage.js';
 
-function addNewTask(todoTasks, description) {
-  const newTask = {
-    description,
-    completed: false,
-    index: todoTasks.length + 1,
-  };
-  todoTasks.push(newTask);
-  storingTolocalStorage();
-}
-
-function clearDoneTasks(todoTasks, index) {
+function clearDoneTasks(todoTasks, task) {
+  const index = todoTasks.findIndex((item) => item.index === task.index);
   todoTasks.splice(index, 1);
   todoTasks.forEach((task, index) => {
-    task.index = index;
+    task.index = todoTasks.length - index;    
   });
+  return todoTasks;
 }
 
 function editTasks(todoTasks, index, newDescription) {
@@ -25,7 +17,7 @@ function editTasks(todoTasks, index, newDescription) {
 function toggleCompleted(todoTasks, task) {
   const index = todoTasks.findIndex((item) => item.index === task.index);
   todoTasks[index].completed = !todoTasks[index].completed;
-  storingTolocalStorage();
+  return todoTasks;
 }
 
 function resetAll(todoTasks) {
@@ -33,16 +25,11 @@ function resetAll(todoTasks) {
 }
 
 function clearAllDone(todoTasks) {
-  // todoTasks.filter((task) => !task.completed);
-  // todoTasks = resetAll(todoTasks);
-  // storingTolocalStorage();
-  // return todoTasks;
-  for (let i = 0; i < todoTasks.length; i += 1) {
-    if (todoTasks[i].completed) {
-      todoTasks.splice(i, 1);
-      i -= 1;
-    }
-  }
+  const newArr = todoTasks.filter((task) => task.completed === false);
+  newArr.forEach((task, index) => {
+    task.index = todoTasks.length - index;
+  });
+  return newArr;
 }
 
-export { editTasks, clearDoneTasks, addNewTask, toggleCompleted, clearAllDone };
+export { editTasks, clearDoneTasks, toggleCompleted, clearAllDone };

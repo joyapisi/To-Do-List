@@ -1,7 +1,5 @@
-const todoTasks = JSON.parse(localStorage.getItem('todoTasks')) || [];
-
-function storingTolocalStorage() {
-  localStorage.setItem('todoTasks', JSON.stringify(todoTasks));
+function storingTolocalStorage(arr) {
+  localStorage.setItem('todoTasks', JSON.stringify(arr));
 }
 
 export default storingTolocalStorage;
