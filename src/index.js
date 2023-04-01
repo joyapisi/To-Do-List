@@ -4,8 +4,6 @@ import './style.css';
 import * as all from './modules/add-delete-update.js';
 import storingTolocalStorage from './modules/local-storage';
 
-// const todoTasks = JSON.parse(localStorage.getItem('todoTasks')) || [];
-
 // Event listener for clear all button
 class List {
   constructor() {
