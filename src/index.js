@@ -53,16 +53,7 @@ class List {
       todoItem.textContent = `${task.description}`;
       // event listener
       todoItem.addEventListener('dblclick', ({ target }) => {
-        // const target = e.target;
-        // target.setAttribute('contenteditable', 'true');
-        // const content = document.querySelector('[contenteditable]');
-        // content.addEventListener('keyup', (e) => {
-        //   e.preventDefault();
-        //   if (e.key === 'Enter') {
-        //     target.textContent = content.textContent;
-        //     target.setAttribute('contenteditable', 'false');
-        //   }
-        // });
+        
         const editInp = document.createElement('input');
         editInp.setAttribute('type', 'text');
         editInp.value = target.textContent;
