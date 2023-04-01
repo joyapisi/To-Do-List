@@ -1,8 +1,11 @@
-// import _ from 'lodash';
+/* eslint no-undef: "error" */
 import './style.css';
 
 import * as all from './modules/add-delete-update.js';
 import storingTolocalStorage from './modules/local-storage';
+/* eslint-disable */
+import toggleCompleted from './modules/status update';
+/* eslint-enable */
 
 // Event listener for clear all button
 class List {
