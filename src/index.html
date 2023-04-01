@@ -11,7 +11,7 @@
         <h3 class="todo-topic">Today's To Do</h3>
         <a id="refresh-icon" class="fa-solid fa-arrows-rotate"></a>
       </div>
-      <form class="to-do-form">
+      <form class="to-do-form" id="to-do-form">
         <div id="add-items">
           <input
             type="text"
@@ -19,14 +19,13 @@
             placeholder="Add to your list.... "
             required
           />
-          <div id="add-icon">&#43;</div>
+          <button type="submit" id="add-icon">&#43;</button>
         </div>
-        <ul id="list-items">
-          <!--To be rendered dynamically in index.js-->
-        </ul>
-
-        <button type="submit" id="clear-all">Clear all completed</button>
       </form>
+      <ul id="list-items">
+        <!--To be rendered dynamically in index.js-->
+      </ul>
+      <button type="button" id="clear-all">Clear all completed</button>
     </div>
     <script
       src="https://kit.fontawesome.com/58789452ae.js"

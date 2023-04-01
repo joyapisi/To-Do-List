@@ -14,14 +14,14 @@ body {
 .to-do-list {
   border-radius: 0.3rem;
   box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.3);
-  padding: 5px 5px;
+  padding: 10px;
   background-color: #fff;
 }
 
 #header {
   display: flex;
   flex-direction: row;
-  padding: 10px 5px;
+  padding: 10px 0;
   border-bottom: 0.5px solid #000;
 }
 
@@ -33,39 +33,32 @@ body {
   width: 6%;
 }
 
-/*
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-} */
-
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 
 #add-items {
   display: flex;
-  padding: 10px 5px;
+
+  /* padding: 5px 0; */
   border-bottom: 0.5px solid #000;
 }
 
 #add-item {
-  width: 95%;
+  width: 90%;
+  padding: 0;
+  cursor: pointer;
 }
 
 #add-icon {
-  width: 5%;
-  font-size: 20px;
-  font-weight: 900;
+  padding: 0 10px;
+  margin-bottom: 5px;
+  width: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: transparent;
 }
 
 input {
@@ -75,28 +68,56 @@ input {
 #list-items {
   display: flex;
   flex-direction: column;
-  padding: 10px 5px;
-  gap: 15px;
+  padding: 5px 5px;
+  gap: 5px;
   border-bottom: 0.5px solid #000;
+  list-style: none;
+}
+
+.inner-item {
+  display: flex;
+
+  /* justify-content: space-between; */
+  padding: 10px 0;
+  width: auto;
+  gap: 12px;
+  background-color: #ddd;
+}
+
+#checkbox {
+  margin-left: 10px;
 }
 
 #todo-item {
-  width: 90%;
+  padding: 0;
+  width: 80%;
+  background-color: transparent;
 }
 
 #ellipsis-icon {
-  align-self: flex-end;
+  position: absolute;
+  right: 41px;
+  padding: 0 10px;
+  cursor: pointer;
+  margin-right: 0;
 }
 
-#inner-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 5px;
+#remove-icon {
+  z-index: 3;
+  padding: 0 20px;
+  cursor: pointer;
 }
 
 button {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  width: 100%;
   border: none;
-  padding: 5px 5px;
+  padding: 10px 15px;
+  margin-top: 10px;
+  background-color: #ddd;
 }
 
 @media screen and (min-width: 768px) {
