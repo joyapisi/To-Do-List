@@ -1,5 +1,41 @@
 import * as all from '../modules/add-delete-update.js';
 
+describe('TodoList', () => {
+  let todoList;
+
+  beforeEach(() => {
+    todoList = new TodoList();
+  });
+
+  describe('add', () => {
+    it('should add a new task to the tasks array', () => {
+      const text = 'New task';
+      todoList.add(text);
+      expect(todoList.tasks.length).toBe(1);
+      expect(todoList.tasks[0].description).toBe(text);
+      expect(todoList.tasks[0].completed).toBe(false);
+      expect(todoList.tasks[0].index).toBe(1);
+    });
+  });
+
+  describe('clearDoneTasks', () => {
+    it('should remove a completed task from the tasks array', () => {
+      const task1 = { index: 1, description: 'Task 1', completed: true };
+      const task2 = { index: 2, description: 'Task 2', completed: false };
+      const task3 = { index: 3, description: 'Task 3', completed: true };
+      todoList.tasks = [task1, task2, task3];
+
+      todoList.clearDoneTasks(task1);
+
+      expect(todoList.tasks.length).toBe(2);
+      expect(todoList.tasks[0]).toBe(task2);
+      expect(todoList.tasks[1]).toBe(task3);
+      expect(todoList.tasks[0].index).toBe(1);
+      expect(todoList.tasks[1].index).toBe(2);
+    });
+  });
+});
+
 describe('editTasks', () => {
   const tasks = [
     { index: 0, description: 'Task 1' },
