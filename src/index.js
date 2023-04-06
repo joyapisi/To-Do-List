@@ -2,7 +2,7 @@
 import './style.css';
 
 import * as all from './modules/add-delete-update.js';
-import storingTolocalStorage from './modules/local-storage';
+import storingTolocalStorage from './modules/local-storage.js';
 /* eslint-disable */
 import toggleCompleted from './modules/status update';
 /* eslint-enable */
