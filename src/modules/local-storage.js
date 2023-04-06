@@ -1,5 +1,5 @@
 function storingTolocalStorage(arr) {
-  localStorage.setItem('todoTasks', JSON.stringify(arr));
+  localStorage.setItem('tasks', JSON.stringify(arr));
 }
 
 export default storingTolocalStorage;

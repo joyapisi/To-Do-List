@@ -1,14 +1,14 @@
-function clearDoneTasks(todoTasks, task) {
-  const index = todoTasks.findIndex((item) => item.index === task.index);
-  todoTasks.splice(index, 1);
-  todoTasks.forEach((task, index) => {
-    task.index = todoTasks.length - index;
+function clearDoneTasks(tasks, task) {
+  const index = tasks.findIndex((item) => item.index === task.index);
+  tasks.splice(index, 1);
+  tasks.forEach((task, index) => {
+    task.index = tasks.length - index;
   });
-  return todoTasks;
+  return tasks;
 }
 
-function editTasks(todoTasks, target, text) {
-  return todoTasks.map((task) => {
+function editTasks(tasks, target, text) {
+  return tasks.map((task) => {
     if (task.index === target.index) {
       task.description = text;
       return task;
@@ -17,14 +17,14 @@ function editTasks(todoTasks, target, text) {
   });
 }
 
-function toggleCompleted(todoTasks, task) {
-  const index = todoTasks.findIndex((item) => item.index === task.index);
-  todoTasks[index].completed = !todoTasks[index].completed;
-  return todoTasks;
+function toggleCompleted(tasks, task) {
+  const index = tasks.findIndex((item) => item.index === task.index);
+  tasks[index].completed = !tasks[index].completed;
+  return tasks;
 }
 
-function clearAllDone(todoTasks) {
-  const newArr = todoTasks.filter((task) => task.completed === false);
+function clearAllDone(tasks) {
+  const newArr = tasks.filter((task) => task.completed === false);
   newArr.forEach((task, i) => {
     task.index = newArr.length - i;
   });

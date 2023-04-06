@@ -18,7 +18,7 @@ class List {
   }
 
   accessLocalStorage() {
-    const tasks = localStorage.getItem('todoTasks');
+    const tasks = localStorage.getItem('tasks');
     if (tasks) {
       this.tasks = JSON.parse(tasks);
     } else {
@@ -82,7 +82,6 @@ class List {
           this.remove(task);
         });
         taskItem.replaceChild(removeIcon, ellipsis);
-        console.log(taskItem);
       });
       taskItem.appendChild(ellipsis);
 
