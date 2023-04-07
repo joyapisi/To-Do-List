@@ -23,7 +23,6 @@ describe('storingTolocalStorage', () => {
   test('should store array in localStorage as stringified JSON', () => {
     const arr = [1, 2, 3];
 
-    //test expectations
     storingTolocalStorage(arr);
     expect(localStorage.setItem).toHaveBeenCalledTimes(1);
     expect(localStorage.setItem).toHaveBeenCalledWith('tasks', JSON.stringify(arr));
