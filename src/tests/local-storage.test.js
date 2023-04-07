@@ -17,7 +17,6 @@ const localStorageMock = (() => {
   };
 })();
 
-// Mock the global localStorage object
 global.localStorage = localStorageMock;
 
 describe('storingTolocalStorage', () => {
