@@ -126,3 +126,5 @@ const list = new List();
 list.accessLocalStorage();
 list.displayTasks();
 list.eventListener();
+
+export default { add, displayTasks}; 

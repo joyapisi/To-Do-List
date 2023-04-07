@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1680871246797" clover="3.2.0">
+  <project timestamp="1680871246797" name="All files">
+    <metrics statements="23" coveredstatements="18" conditionals="4" coveredconditionals="4" methods="11" coveredmethods="8" elements="38" coveredelements="30" complexity="0" loc="23" ncloc="23" packages="1" files="2" classes="2"/>
+    <file name="add-delete-update.js" path="C:\Users\Joy\Documents\To-Do-List\src\modules\add-delete-update.js">
+      <metrics statements="21" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="10" coveredmethods="7"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="0" type="stmt"/>
+      <line num="3" count="0" type="stmt"/>
+      <line num="4" count="0" type="stmt"/>
+      <line num="5" count="0" type="stmt"/>
+      <line num="7" count="0" type="stmt"/>
+      <line num="10" count="2" type="stmt"/>
+      <line num="11" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="12" count="2" type="stmt"/>
+      <line num="14" count="4" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="18" count="4" type="stmt"/>
+      <line num="19" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="27" count="4" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="29" count="2" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+    </file>
+    <file name="local-storage.js" path="C:\Users\Joy\Documents\To-Do-List\src\modules\local-storage.js">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
