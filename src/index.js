@@ -2,7 +2,7 @@
 import './style.css';
 
 import * as all from './modules/add-delete-update.js';
-import storingTolocalStorage from './modules/local-storage';
+import storingTolocalStorage from './modules/local-storage.js';
 /* eslint-disable */
 import toggleCompleted from './modules/status update';
 /* eslint-enable */
@@ -18,7 +18,7 @@ class List {
   }
 
   accessLocalStorage() {
-    const tasks = localStorage.getItem('todoTasks');
+    const tasks = localStorage.getItem('tasks');
     if (tasks) {
       this.tasks = JSON.parse(tasks);
     } else {
@@ -82,7 +82,6 @@ class List {
           this.remove(task);
         });
         taskItem.replaceChild(removeIcon, ellipsis);
-        console.log(taskItem);
       });
       taskItem.appendChild(ellipsis);
 

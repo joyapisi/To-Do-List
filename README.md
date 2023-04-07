@@ -61,7 +61,7 @@ HTML, CSS and JavaScript Awesome Books Project
 
 Coming soon!
 
-## 🚀 Live Demo <a name="live-demo"></a>
+## 🚀 Live Demo <a href="https://joyapisi.github.io/To-Do-List/" name="live-demo">Live Demo</a>
 
 Coming Soon!
 
