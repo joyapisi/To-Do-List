@@ -4,7 +4,7 @@
   "description": "HTML, CSS and JavaScript Awesome Books Project\r <a name=\"readme-top\"></a>",
   "private": true,
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
     "build": "webpack"
