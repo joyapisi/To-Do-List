@@ -1,6 +1,6 @@
 # To Do List
 
-HTML, CSS and JavaScript Awesome Books Project
+HTML, CSS and JavaScript To Do List Project
 <a name="readme-top"></a>
 
 # 📗 Table of Contents
