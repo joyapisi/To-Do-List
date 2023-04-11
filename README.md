@@ -27,7 +27,7 @@ HTML, CSS and JavaScript To Do List Project
 
 # 📖 [To_Do_List] <a name="To DO List"></a>
 
-**[To_Do_List]** is a simple a simple web page that sisplays a list of To Do tasks. It is built using webpack and served by a webpack dev server.
+**[To_Do_List]** is a simple a simple web page that displays a list of To Do tasks inserted by a user. It is built using webpack and served by a webpack dev server.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -57,13 +57,9 @@ HTML, CSS and JavaScript To Do List Project
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🎥 Video Explanation <a name="video-explanation"></a>
+## 🎥 Video Explanation <a name="video-explanation">Coming soon!</a>
 
-Coming soon!
-
-## 🚀 Live Demo <a href="https://joyapisi.github.io/To-Do-List/" name="live-demo">Live Demo</a>
-
-Coming Soon!
+## 🚀 Live Demo <a href="https://joyapisi.github.io/To-Do-List/dist" name="live-demo">Live Demo</a>
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
